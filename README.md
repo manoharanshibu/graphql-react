@@ -9,3 +9,7 @@ node server/app
 npm i graphql express-graphql
 schema/schema.js
 lodash
+mlab
+mongoose
+npm install apollo-boost react-apollo graphql --save
+cors

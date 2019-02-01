@@ -1,0 +1,52 @@
+    {
+    author(id:2) {
+        
+        name
+        age
+        id
+        
+        book{
+        name
+        genre
+        }
+    }
+    }
+
+{
+  authors {
+    name
+    age
+  }
+}
+
+
+{
+  books {
+    name
+    genre
+  }
+}
+
+
+mutation {
+  addAuthor(name: "Shibu", age: 40){
+    name
+    age
+  }
+}
+
+
+mutation {
+  addBook(name: "Long Earth", genre: "Sci-Fi", authorId: "5c54503a41f30a0c3f909150"){
+    name
+    genre
+  }
+}
+
+{
+  books {
+    name
+    genre
+  }
+}
+
