@@ -7,7 +7,7 @@ const Author = require('../models/author');
 
 const { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLID, GraphQLInt, GraphQLList } = graphql;
 
-/*const books = [
+const books = [
     {name: 'book1', genre: 'genre1', id: '1', authorId: '1'},
     {name: 'book2', genre: 'genre2', id: '2', authorId: '2'},
     {name: 'book3', genre: 'genre3', id: '3', authorId: '2'}
@@ -17,7 +17,7 @@ let authors= [
     {name: 'author1', age: 25, id: '1'},
     {name: 'author2', age: 35, id: '2'},
     {name: 'author3', age: 51, id: '3'}
-];*/
+];
 
 const BookType = new GraphQLObjectType({
     name: 'Book',
@@ -41,8 +41,8 @@ const AuthorType = new GraphQLObjectType({
         id: { type: GraphQLID },
         name: { type: GraphQLString },
         age: { type: GraphQLInt },
-        books: {
-            type: new GraphQLList(BookType),
+        book: {
+            type: BookType,
             resolve(parent, args) {
                 //return _.filter(books, { authorId: parent.id })
                 return Book.find({ authorId: parent.id})
@@ -116,7 +116,7 @@ const Mutation = new GraphQLObjectType({
                 let book = new Book({
                     name: args.name,
                     genre: args.genre,
-                    authorId: args.authorId
+                    id: args.authorId
                 });
 
                 return book.save();
