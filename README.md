@@ -13,3 +13,5 @@ mlab
 mongoose
 npm install apollo-boost react-apollo graphql --save
 cors
+
+some changes
